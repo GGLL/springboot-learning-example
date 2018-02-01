@@ -1,7 +1,6 @@
 package org.spring.springboot.web;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Spring Boot HelloWorld 案例
@@ -11,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloWorldController {
 
-    @RequestMapping("/")
-    public String sayHello() {
-        return "Hello,World!";
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @ResponseBody
+    public String sayHello(@RequestParam String name) {
+        System.out.println("-------------------------say start------------------------------------");
+        return "Hello,"+name;
     }
 }
